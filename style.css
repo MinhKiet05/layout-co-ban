@@ -1,0 +1,78 @@
+.container {
+    margin: 30px;
+    padding: 20px;
+    border: 2px solid #333;
+    height: 200px;
+    overflow: auto;
+    background: #f4f4f4;
+}
+
+.box {
+    width: 80px;
+    height: 80px;
+    background: orange;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+/* static (mặc định) */
+.static {
+    position: static;
+    background: tomato;
+}
+
+/* relative */
+.relative {
+    position: relative;
+    top: 20px;
+    /* đẩy xuống */
+    left: 30px;
+    /* đẩy sang phải */
+    background: green;
+}
+
+/* absolute */
+.absolute-wrapper {
+    position: relative;
+    /* làm cha để chứa phần tử absolute */
+    border: 2px dashed blue;
+    height: 150px;
+    margin: 20px 0;
+}
+
+.absolute {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: purple;
+}
+
+/* fixed */
+.fixed {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: red;
+}
+
+/* sticky */
+.sticky {
+    position: sticky;
+    top: 0;
+    background: dodgerblue;
+}
+a {
+	color: #1565c0;
+	text-decoration: none;
+	font-weight: 500;
+	margin-right: 16px;
+	transition: color 0.2s;
+}
+a:hover, a:focus {
+	color: #0d47a1;
+	text-decoration: underline;
+}

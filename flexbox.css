@@ -1,0 +1,249 @@
+:root {
+    --gap: 12px;
+    --item-w: 80px;
+    --item-h: 60px;
+    --accent: #0b6efd;
+    --muted: #f1f5f9;
+}
+
+/* Reset cơ bản */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+body {
+    font-family: Inter, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    line-height: 1.4;
+    padding: 24px;
+    background: #fbfcfe;
+    color: #0b1220
+}
+
+h1 {
+    font-size: 20px;
+    margin-bottom: 12px
+}
+
+h2 {
+    font-size: 16px;
+    margin: 18px 0 10px
+}
+
+p.lead {
+    margin-bottom: 12px;
+    color: #374151
+}
+
+/* Layout */
+.grid {
+    display: grid;
+    gap: 18px
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 14px;
+    box-shadow: 0 6px 16px rgba(12, 20, 34, 0.06);
+    border: 1px solid rgba(15, 23, 42, 0.04);
+}
+
+/* Reusable flex container for examples */
+.demo {
+    border: 1px dashed #e6eefc;
+    padding: 12px;
+    margin-top: 10px;
+    min-height: 120px;
+    display: flex;
+    /* mặc định là flex, một số ví dụ sẽ override */
+    gap: var(--gap);
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(180deg, #ffffff, #fbfdff);
+}
+
+/* visual items */
+.item {
+    width: var(--item-w);
+    height: var(--item-h);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--muted);
+    border-radius: 8px;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    font-weight: 600;
+    color: #0b1220;
+    box-shadow: 0 3px 6px rgba(11, 22, 40, 0.04);
+}
+
+/* màu khác cho item cụ thể (dùng để show align-self / order) */
+.item.primary {
+    background: linear-gradient(180deg, var(--accent), #084fcf);
+    color: white
+}
+
+.note {
+    font-size: 13px;
+    color: #475569;
+    margin-top: 8px
+}
+
+/* --- Các lớp tiện ích cụ thể cho ví dụ --- */
+
+/* flex-direction */
+.dir-row {
+    flex-direction: row
+}
+
+.dir-row-reverse {
+    flex-direction: row-reverse
+}
+
+.dir-col {
+    flex-direction: column
+}
+
+.dir-col-reverse {
+    flex-direction: column-reverse
+}
+
+/* flex-wrap */
+.wrap-nowrap {
+    flex-wrap: nowrap
+}
+
+.wrap-wrap {
+    flex-wrap: wrap
+}
+
+.wrap-wrap-reverse {
+    flex-wrap: wrap-reverse
+}
+
+/* justify-content variants */
+.jc-start {
+    justify-content: flex-start
+}
+
+.jc-end {
+    justify-content: flex-end
+}
+
+.jc-center {
+    justify-content: center
+}
+
+.jc-between {
+    justify-content: space-between
+}
+
+.jc-around {
+    justify-content: space-around
+}
+
+.jc-evenly {
+    justify-content: space-evenly
+}
+
+/* align-items variants */
+.ai-stretch {
+    align-items: stretch
+}
+
+.ai-start {
+    align-items: flex-start
+}
+
+.ai-end {
+    align-items: flex-end
+}
+
+.ai-center {
+    align-items: center
+}
+
+.ai-baseline {
+    align-items: baseline
+}
+
+/* align-content (chỉ có tác dụng khi wrap và có khoảng trống cross-axis) */
+.ac-stretch {
+    align-content: stretch
+}
+
+.ac-start {
+    align-content: flex-start
+}
+
+.ac-center {
+    align-content: center
+}
+
+.ac-end {
+    align-content: flex-end
+}
+
+.ac-between {
+    align-content: space-between
+}
+
+.ac-around {
+    align-content: space-around
+}
+
+/* align-self: override 1 item */
+.self-start {
+    align-self: flex-start
+}
+
+.self-end {
+    align-self: flex-end
+}
+
+.self-center {
+    align-self: center
+}
+
+.self-stretch {
+    align-self: stretch
+}
+
+/* order: thay đổi vị trí hiển thị */
+/* ví dụ: .order-1 { order: -1 } số âm sẽ lên trước */
+.order--1 {
+    order: -1
+}
+
+.order-1 {
+    order: 1
+}
+
+.order-2 {
+    order: 2
+}
+
+/* make small screens nicer */
+@media (max-width:720px) {
+    :root {
+        --item-w: 64px;
+        --item-h: 48px
+    }
+
+    body {
+        padding: 14px
+    }
+}
+a {
+	color: #1565c0;
+	text-decoration: none;
+	font-weight: 500;
+	margin-right: 16px;
+	transition: color 0.2s;
+}
+a:hover, a:focus {
+	color: #0d47a1;
+	text-decoration: underline;
+}

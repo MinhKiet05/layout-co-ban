@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Flexbox Demo — Minh họa các thuộc tính</title>
+<link rel="stylesheet" href="flexbox.css">
+<link rel="stylesheet" href="chung.css">
+</head>
+<body>
+<a href="index.html">Trở về đầu Position</a>
+  <a href="flexbox.html">Trở về trang Flexbox</a>
+<h1>Minh họa Flexbox — các thuộc tính quan trọng</h1>
+<p class="lead">Mỗi khung ví dụ bên dưới có tiêu đề, chú thích ngắn, và một container hiển thị trực quan kết quả của thuộc tính flex tương ứng.</p>
+
+<div class="grid">
+
+  <!-- Display: flex -->
+  <section class="card">
+    <h2>Display: <code>display: flex</code></h2>
+    <p class="note">Đặt cho phần tử cha để bật chế độ Flexbox. Ở đây các <code>.item</code> nằm trên một hàng (mặc định).</p>
+    <div class="demo" style="display:flex;">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+    </div>
+    <p class="note"><i>display: flex</i> giúp các phần tử con xếp hàng ngang (hoặc dọc tuỳ flex-direction), tự động co giãn theo không gian cha. Trên thiết bị nhỏ, các item sẽ thu nhỏ lại.</p>
+  </section>
+
+  <!-- flex-direction -->
+  <section class="card">
+    <h2>flex-direction</h2>
+    <p class="note">Thay đổi trục chính (main axis). Các giá trị: <code>row</code>, <code>row-reverse</code>, <code>column</code>, <code>column-reverse</code>.</p>
+    <div class="demo dir-row">
+      <div class="item">row</div>
+      <div class="item">row</div>
+      <div class="item">row</div>
+    </div>
+
+    <p class="note"><i>flex-direction: row</i> là mặc định, các item xếp hàng ngang từ trái sang phải. Trên màn hình nhỏ, các item sẽ tự động xuống dòng nếu không đủ chỗ.</p>
+
+    <div class="demo dir-col" style="margin-top:10px;min-height:180px;">
+      <div class="item">column</div>
+      <div class="item">column</div>
+      <div class="item">column</div>
+    </div>
+
+    <p class="note"><i>flex-direction: column</i> xếp các item theo cột dọc. Trên mobile, các item vẫn giữ thứ tự dọc, dễ đọc hơn.</p>
+
+    <div class="demo dir-row-reverse" style="margin-top:10px;">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+    </div>
+
+    <p class="note"><i>flex-direction: row-reverse</i> đảo ngược thứ tự các item theo hàng ngang.</p>
+  </section>
+
+  <!-- flex-wrap và align-content -->
+  <section class="card">
+    <h2>flex-wrap &amp; align-content</h2>
+    <p class="note">Khi các phần tử tràn trục chính, dùng <code>flex-wrap</code> để cho xuống dòng. <code>align-content</code> kiểm soát khoảng cách giữa các dòng (chỉ khi có wrap và chiều cao container lớn hơn nội dung).</p>
+
+    <div style="margin-top:10px">
+      <strong>nowrap (một dòng, overflow)</strong>
+      <div class="demo wrap-nowrap" style="overflow:auto;min-height:120px;">
+        <!-- nhiều item để ép overflow -->
+        <div class="item">A</div><div class="item">B</div><div class="item">C</div><div class="item">D</div><div class="item">E</div><div class="item">F</div><div class="item">G</div>
+      </div>
+    <p class="note"><i>nowrap</i>: Các item không xuống dòng, sẽ tràn ra ngoài nếu không đủ chỗ. Trên mobile, có thể cuộn ngang.</p>
+    </div>
+
+    <div style="margin-top:14px">
+      <strong>wrap + align-content: center</strong>
+      <div class="demo wrap-wrap ac-center" style="height:220px;align-items:flex-start;">
+        <!-- wrap sẽ tạo nhiều hàng -->
+        <div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div>
+      </div>
+    <p class="note"><i>wrap + align-content: center</i>: Các item tự động xuống dòng, các dòng được căn giữa theo chiều dọc. Trên mobile, các dòng sẽ xếp dọc và co lại.</p>
+      <p class="note">Container cao 220px nên bạn sẽ thấy các dòng được căn giữa theo cross-axis.</p>
+    </div>
+
+    <div style="margin-top:10px">
+      <strong>wrap + align-content: space-between</strong>
+      <div class="demo wrap-wrap ac-between" style="height:220px;align-items:flex-start;">
+        <div class="item">A</div><div class="item">B</div><div class="item">C</div><div class="item">D</div><div class="item">E</div><div class="item">F</div><div class="item">G</div><div class="item">H</div><div class="item">I</div><div class="item">J</div>
+      </div>
+    <p class="note"><i>wrap + align-content: space-between</i>: Các dòng được dàn đều khoảng cách. Trên mobile, các dòng sẽ thu hẹp lại.</p>
+    </div>
+  </section>
+
+  <!-- justify-content -->
+  <section class="card">
+    <h2>justify-content</h2>
+    <p class="note">Điều khiển cách phân bố các item theo trục chính (main axis). Ví dụ: <code>flex-start</code>, <code>center</code>, <code>space-between</code>, v.v.</p>
+
+    <div class="demo jc-start" style="min-height:80px;">
+      <div class="item">start</div><div class="item">start</div><div class="item">start</div>
+    </div>
+    <p class="note"><i>justify-content: flex-start</i>: Các item dồn về bên trái (trục chính). Trên mobile, các item sẽ tự động co lại.</p>
+    <div class="demo jc-center" style="margin-top:10px;">
+      <div class="item">center</div><div class="item">center</div><div class="item">center</div>
+    </div>
+    <p class="note"><i>justify-content: center</i>: Các item căn giữa theo trục chính.</p>
+    <div class="demo jc-between" style="margin-top:10px;">
+      <div class="item">between</div><div class="item">between</div><div class="item">between</div>
+    </div>
+    <p class="note"><i>justify-content: space-between</i>: Các item dàn đều, item đầu và cuối sát mép.</p>
+    <div class="demo jc-evenly" style="margin-top:10px;">
+      <div class="item">evenly</div><div class="item">evenly</div><div class="item">evenly</div>
+    </div>
+    <p class="note"><i>justify-content: space-evenly</i>: Các item dàn đều khoảng cách hai bên và giữa.</p>
+  </section>
+
+  <!-- align-items -->
+  <section class="card">
+    <h2>align-items</h2>
+    <p class="note">Căn các item dọc theo trục chéo (cross axis). Thử thay đổi chiều cao item để thấy sự khác biệt.</p>
+
+    <div class="demo ai-start" style="min-height:120px;">
+      <div class="item" style="height:36px">short 36px</div>
+      <div class="item" style="height:60px">normal 60px</div>
+      <div class="item" style="height:100px">tall 100px</div>
+    </div>
+    <p class="note"><i>align-items: flex-start</i>: Các item căn lên trên (trục chéo). Trên mobile, các item sẽ thu nhỏ chiều cao.</p>
+<hr><br>
+    <div class="demo ai-center" style="margin-top:10px;min-height:120px;">
+      <div class="item" style="height:36px">short</div>
+      <div class="item" style="height:60px">normal</div>
+      <div class="item" style="height:100px">tall</div>
+    </div>
+    <p class="note"><i>align-items: center</i>: Các item căn giữa theo chiều dọc.</p>
+<hr><br>
+    <div class="demo ai-stretch" style="margin-top:10px;min-height:120px;">
+      <div class="item" style="height:auto">auto</div>
+      <div class="item" style="height:auto">auto</div>
+      <div class="item" style="height:auto">auto</div>
+    </div>
+    <p class="note"><i>align-items: stretch</i>: Các item kéo giãn để lấp đầy chiều cao container.</p>
+  </section>
+
+  <!-- align-self -->
+  <section class="card">
+    <h2>align-self</h2>
+    <p class="note">Ghi đè <code>align-items</code> cho từng item riêng lẻ.</p>
+
+    <div class="demo ai-center" style="min-height:140px;">
+      <div class="item">A</div>
+      <div class="item primary self-start" style="width:120px">self-start</div>
+      <div class="item">C</div>
+      <div class="item self-end">self-end</div>
+    </div>
+    <p class="note"><i>align-self</i>: Ghi đè căn chỉnh cho từng item riêng lẻ. Trên mobile, các item vẫn giữ căn chỉnh riêng.</p>
+  </section>
+
+  <!-- order -->
+  <section class="card">
+    <h2>order</h2>
+    <p class="note">Thay đổi thứ tự hiển thị của item mà không thay đổi DOM.</p>
+
+    <div class="demo jc-between" style="min-height:100px;">
+      <div class="item order-2">order:2</div>
+      <div class="item order--1 primary">order:-1 (lên trước)</div>
+      <div class="item order-1">order:1</div>
+    </div>
+    <p class="note"><i>order</i>: Thay đổi thứ tự hiển thị của item mà không thay đổi DOM. Trên mobile, thứ tự vẫn được giữ đúng.</p>
+
+    <p class="note">Trong DOM, thứ tự có thể là 1-2-3 nhưng bằng cách đặt <code>order</code> bạn có thể render 2-3-1, v.v.</p>
+  </section>
+
+  <!-- Tổng hợp: layout phức hợp -->
+  <section class="card">
+    <h2>Tổng hợp (ví dụ thực tế nhỏ)</h2>
+    <p class="note">Một header đơn giản: logo + nav + actions. Flex giúp dễ dàng canh giữa và phân bố khoảng trống.</p>
+
+    <div class="demo jc-between ai-center" style="padding:18px;">
+      <div class="item primary" style="width:110px">Logo</div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <div class="item" style="width:68px">Nav1</div>
+        <div class="item" style="width:68px">Nav2</div>
+        <div class="item" style="width:68px">Nav3</div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <div class="item" style="width:68px">Login</div>
+        <div class="item" style="width:68px">Cart</div>
+      </div>
+    </div>
+    <p class="note"><i>Ví dụ tổng hợp</i>: Flexbox giúp layout phức tạp trở nên đơn giản, tự động co giãn trên mọi thiết bị.</p>
+  </section>
+
+</div>
+
+</body>
+</html>

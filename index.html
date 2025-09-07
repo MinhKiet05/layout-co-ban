@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Ví dụ Position CSS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chung.css">
+</head>
+<body>
+  <a href="index.html">Trở về trang Position</a>
+  <a href="flexbox.html">Trở về trang Flexbox</a>
+  <h1>Ví dụ Position trong CSS</h1>
+  <p class="lead">Minh họa các giá trị khác nhau của thuộc tính <code>position</code> trong CSS.</p>
+  <p><b>Giải thích sự khác nhau:</b><br>
+    <b>Static</b>: Vị trí mặc định, không bị ảnh hưởng bởi top, left, right, bottom.<br>
+    <b>Relative</b>: Vị trí dựa trên vị trí ban đầu, có thể dịch chuyển bằng top, left, right, bottom.<br>
+    <b>Absolute</b>: Vị trí tuyệt đối so với phần tử cha gần nhất có position khác static.<br>
+    <b>Fixed</b>: Vị trí cố định so với cửa sổ trình duyệt, luôn hiển thị khi cuộn trang.<br>
+    <b>Sticky</b>: Kết hợp giữa relative và fixed, dính vào vị trí khi cuộn đến một ngưỡng nhất định.
+  </p>
+  <h2>1. Static (mặc định)</h2>
+  <div class="container">
+    <div class="box static">Static</div>
+  </div>
+
+  <p><i>Static: Vị trí mặc định, không bị ảnh hưởng bởi top, left, right, bottom.</i></p>
+
+  <h2>2. Relative (tương đối)</h2>
+  <div class="container">
+    <div class="box relative">Relative</div>
+  </div>
+
+  <p><i>Relative: Vị trí dựa trên vị trí ban đầu, có thể dịch chuyển bằng top, left, right, bottom.</i></p>
+
+  <h2>3. Absolute (tuyệt đối)</h2>
+  <div class="container absolute-wrapper">
+    <div class="box absolute">Absolute</div>
+  </div>
+
+  <p><i>Absolute: Vị trí tuyệt đối so với phần tử cha gần nhất có position khác static.</i></p>
+
+  <h2>4. Fixed (cố định)</h2>
+  <p>Kéo xuống để thấy box này luôn nằm ở góc màn hình</p>
+  <div class="box fixed" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" style="cursor:pointer;">Fixed</div>
+
+  <p><i>Fixed: Vị trí cố định so với cửa sổ trình duyệt, luôn hiển thị khi cuộn trang.</i></p>
+
+  <h2>5. Sticky (kết hợp)</h2>
+  <div class="container" style="height:300px;">
+    <div class="box sticky">Sticky</div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porta est id nisi faucibus, eu congue nulla finibus. Cras nec lectus sed nunc convallis fermentum. Sed in augue ac purus fermentum euismod. Donec iaculis justo vel aliquet vulputate. Morbi consequat sapien quis arcu sollicitudin, id dictum ligula malesuada. Etiam interdum luctus erat, nec condimentum lacus.</p>
+    <p>Cuộn thử để thấy box Sticky dính trên đầu container.</p>
+  <p><i>Sticky: Kết hợp giữa relative và fixed, dính vào vị trí khi cuộn đến một ngưỡng nhất định.</i></p>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
